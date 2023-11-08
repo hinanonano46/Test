@@ -1,0 +1,428 @@
+{% extends 'base.html' %}
+{% block body_block %}
+                <div class="content-page">
+                    <div class="content">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+
+                                    </div>
+                                    <h4 class="page-title">首页</h4>
+                                </div> <!-- end page-title-box -->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end page title -->
+
+
+                        <div class="row">
+                            <div class="col-xl-12">
+
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="card widget-flat">
+                                            <div class="card-body">
+                                                <div class="float-right"></div>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">2号线一期</h5>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">{{year}}年{{month}}月平均轮缘厚度</h5>
+                                                <h3 class="mt-3 mb-3">{{countSd1}}</h3>
+                                               {% if per1 >0 %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> {{per1}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% else %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-success mr-2"><i class="mdi mdi-arrow-down-bold"></i> {{per1}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% endif %}
+                                            </div> <!-- end card-body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+
+                                    <div class="col-lg-3">
+                                        <div class="card widget-flat">
+                                            <div class="card-body">
+                                                <div class="float-right"></div>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">2号线二期</h5>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">{{year}}年{{month}}月平均轮缘厚度</h5>
+                                                <h3 class="mt-3 mb-3">{{countSd2}}</h3>
+                                               {% if per2 >0 %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> {{per2}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% else %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-success mr-2"><i class="mdi mdi-arrow-down-bold"></i> {{per2}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% endif %}
+                                            </div> <!-- end card-body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+                                    <div class="col-lg-3">
+                                        <div class="card widget-flat">
+                                            <div class="card-body">
+                                                <div class="float-right"></div>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">2号线一期</h5>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">{{year}}年{{month}}月平均轮径值</h5>
+                                                <h3 class="mt-3 mb-3">{{countWD1}}</h3>
+                                               {% if per3 >0 %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> {{per3}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% else %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-success mr-2"><i class="mdi mdi-arrow-down-bold"></i> {{per3}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% endif %}
+                                            </div> <!-- end card-body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+                                    <div class="col-lg-3">
+                                        <div class="card widget-flat">
+                                            <div class="card-body">
+                                                <div class="float-right"></div>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">2号线二期</h5>
+                                                <h5 class="text-muted font-weight-normal mt-0" title="">{{year}}年{{month}}月平均轮径值</h5>
+                                                <h3 class="mt-3 mb-3">{{countWD2}}</h3>
+                                               {% if per4 >0 %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-danger mr-2"><i class="mdi mdi-arrow-up-bold"></i> {{per4}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% else %}
+                                                <p class="mb-0 text-muted">
+                                                    <span class="text-success mr-2"><i class="mdi mdi-arrow-down-bold"></i> {{per4}}</span>
+                                                    <span class="text-nowrap">Since last month</span>
+                                                </p>
+                                               {% endif %}
+                                            </div> <!-- end card-body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+                                </div> <!-- end row -->
+
+
+
+
+                         <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="Sd" style="width: 750px;height:470px;"></div>
+
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="WD" style="width: 750px;height:470px;"></div>
+
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+
+                         </div>  <!-- end row-->
+
+
+
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+<!--                                        <a href="" class="btn btn-sm btn-link float-right mb-3">返回最上层-->
+<!--                                            <i class="mdi mdi-download ml-1"></i>                                        -->
+<!--                                        </a>-->
+                                        <h4 class="header-title mt-2">轮缘厚度最少的轮对</h4>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-hover mb-0">
+                                                <tbody>
+                                                {%for Sdmin in Sdmins%}
+                                                    <tr>
+                                                        <td>
+                                                            <span class="text-muted font-13">车号</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{Sdmin.metro_id}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">车组号</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{Sdmin.car_id}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">轮对序号</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{Sdmin.wheel_id}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">轮缘厚度</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{Sdmin.Sd}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">测量日期</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{Sdmin.date}}</h5>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- end table-responsive-->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-body">
+<!--                                        <a href="" class="btn btn-sm btn-link float-right mb-3">返回最上层-->
+<!--                                            <i class="mdi mdi-download ml-1"></i>                                        -->
+<!--                                        </a>-->
+                                        <h4 class="header-title mt-2">轮径值最少的轮对</h4>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-hover mb-0">
+                                                <tbody>
+                                                {%for WDmin in WDmins%}
+                                                    <tr>
+                                                        <td>
+                                                            <span class="text-muted font-13">车号</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{WDmin.metro_id}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">车组号</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{WDmin.car_id}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">轮对序号</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{WDmin.wheel_id}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">轮径</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{WDmin.WD}}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-muted font-13">测量日期</span>
+                                                            <h5 class="font-14 mb-1 font-weight-normal">{{WDmin.date}}</h5>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- end table-responsive-->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>  <!-- end row-->
+
+
+
+
+
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+        <!-- END Container -->
+
+
+        <!-- Right Sidebar -->
+<!--        <div class="right-bar">-->
+
+<!--            <div class="rightbar-title">-->
+<!--                <a href="javascript:void(0);" class="right-bar-toggle float-right">-->
+<!--                    <i class="dripicons-cross noti-icon"></i>                </a>-->
+<!--                <h5 class="m-0">Settings</h5>-->
+<!--            </div>-->
+
+<!--            <div class="slimscroll-menu rightbar-content">-->
+
+<!--                &lt;!&ndash; Settings &ndash;&gt;-->
+<!--                <hr class="mt-0" />-->
+<!--                <h5 class="pl-3">Basic Settings</h5>-->
+<!--                <hr class="mb-0" />-->
+
+<!--                <div class="p-3">-->
+<!--                    <div class="custom-control custom-checkbox mb-2">-->
+<!--                        <input type="checkbox" class="custom-control-input" id="notifications-check" checked>-->
+<!--                        <label class="custom-control-label" for="notifications-check">Notifications</label>-->
+<!--                    </div>-->
+
+<!--                    <div class="custom-control custom-checkbox mb-2">-->
+<!--                        <input type="checkbox" class="custom-control-input" id="api-access-check">-->
+<!--                        <label class="custom-control-label" for="api-access-check">API Access</label>-->
+<!--                    </div>-->
+
+<!--                    <div class="custom-control custom-checkbox mb-2">-->
+<!--                        <input type="checkbox" class="custom-control-input" id="auto-updates-check" checked>-->
+<!--                        <label class="custom-control-label" for="auto-updates-check">Auto Updates</label>-->
+<!--                    </div>-->
+
+<!--                    <div class="custom-control custom-checkbox mb-2">-->
+<!--                        <input type="checkbox" class="custom-control-input" id="online-status-check" checked>-->
+<!--                        <label class="custom-control-label" for="online-status-check">Online Status</label>-->
+<!--                    </div>-->
+
+<!--                    <div class="custom-control custom-checkbox mb-2">-->
+<!--                        <input type="checkbox" class="custom-control-input" id="auto-payout-check">-->
+<!--                        <label class="custom-control-label" for="auto-payout-check">Auto Payout</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+<!--                &lt;!&ndash; Timeline &ndash;&gt;-->
+<!--                <hr class="mt-0" />-->
+<!--                <h5 class="pl-3">Recent Activity</h5>-->
+<!--                <hr class="mb-0" />-->
+<!--                <div class="pl-2 pr-2">-->
+<!--                    <div class="timeline-alt">-->
+<!--                        <div class="timeline-item">-->
+<!--                            <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>-->
+<!--                            <div class="timeline-item-info">-->
+<!--                                <a href="#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>-->
+<!--                                <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>-->
+<!--                                <p class="mb-0 pb-2">-->
+<!--                                    <small class="text-muted">5 minutes ago</small>                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                            <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>-->
+<!--                            <div class="timeline-item-info">-->
+<!--                                <a href="#" class="text-primary font-weight-bold mb-1 d-block">Product on the Bootstrap Market</a>-->
+<!--                                <small>Dave Gamache added-->
+<!--                                    <span class="font-weight-bold">Admin Dashboard</span>                                </small>-->
+<!--                                <p class="mb-0 pb-2">-->
+<!--                                    <small class="text-muted">30 minutes ago</small>                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                            <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>-->
+<!--                            <div class="timeline-item-info">-->
+<!--                                <a href="#" class="text-info font-weight-bold mb-1 d-block">Robert Delaney</a>-->
+<!--                                <small>Send you message-->
+<!--                                    <span class="font-weight-bold">"Are you there?"</span>-->
+<!--                                </small>-->
+<!--                                <p class="mb-0 pb-2">-->
+<!--                                    <small class="text-muted">2 hours ago</small>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                            <i class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"></i>-->
+<!--                            <div class="timeline-item-info">-->
+<!--                                <a href="#" class="text-primary font-weight-bold mb-1 d-block">Audrey Tobey</a>-->
+<!--                                <small>Uploaded a photo-->
+<!--                                    <span class="font-weight-bold">"Error.jpg"</span>-->
+<!--                                </small>-->
+<!--                                <p class="mb-0 pb-2">-->
+<!--                                    <small class="text-muted">14 hours ago</small>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                            <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>-->
+<!--                            <div class="timeline-item-info">-->
+<!--                                <a href="#" class="text-info font-weight-bold mb-1 d-block">You sold an item</a>-->
+<!--                                <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>-->
+<!--                                <p class="mb-0 pb-2">-->
+<!--                                    <small class="text-muted">1 day ago</small>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+       <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('Sd'));
+
+        myChart.setOption({
+title: {
+        text: '轮缘厚度数据',
+        subtext: '间隔1mm',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+    },
+    series: [
+        {
+            name: '轮缘厚度',
+            type: 'pie',
+            radius: '50%',
+            data: [
+                {value: {{Sd1}}, name: '< 28'},
+                {value: {{Sd2}}, name: '28-29'},
+                {value: {{Sd3}}, name: '29-30'},
+                {value: {{Sd4}}, name: '30-31'},
+                {value: {{Sd5}}, name: '31-32'},
+                {value: {{Sd6}}, name: '> 32'}
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+        })
+    </script>
+       <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('WD'));
+
+        myChart.setOption({
+title: {
+        text: '轮径数据',
+        subtext: '间隔10mm',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+    },
+    series: [
+        {
+            name: '轮径',
+            type: 'pie',
+            radius: '50%',
+            data: [
+                {value: {{WD1}}, name: '810以下'},
+                {value: {{WD2}}, name: '810-820'},
+                {value: {{WD3}}, name: '820-830'},
+                {value: {{WD4}}, name: '830以上'},
+
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+        })
+    </script>
+{% endblock %}

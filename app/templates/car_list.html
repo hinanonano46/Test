@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% import 'page.html' as pg %}
+{% block body_block %}
+
+
+<div class="col-xl-10">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <h4 class="header-title">轮对最新数据</h4>
+                                        <p class="text-muted font-14 mb-0">
+                                         目前数据库中所有车的数据
+                                        </p>
+                <div class="app-search">
+                    <form method="get" action="{{url_for('car_list')}}">
+                        <div class="input-group">
+                            <input name="metro_id2" type="text" class="form-control"  placeholder="请输入车号">
+
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-centered mb-0">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th>车号</th>
+                                                        <th>整车QR平均值</th>
+                                                        <th>整车轮缘高度平均值</th>
+                                                        <th>整车轮缘厚度平均值</th>
+                                                        <th>整车轮径平均值</th>
+                                                        <th>测量日期</th>
+                                                        <th>公里数</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                {% for data in datas.items %}
+
+                                                    <tr>
+                                                        <td>{{data.metro_id}}</td>
+                                                        <td>{{data.QR_avg}}</td>
+                                                        <td>{{data.Sh_avg}}</td>
+                                                        <td>{{data.Sd_avg}}</td>
+                                                        <td>{{data.WD_avg}}</td>
+                                                        <td>{{data.date}}</td>
+                                                        <td>{{data.mile}}</td>
+                                                        <td><a href="/wheel_list?metro_id={{data.metro_id}}">详情</a></td>
+                                                    </tr>
+                                                {% endfor%}
+
+                                                </tbody>
+
+
+
+                                            </table>
+                                        </div> <!-- end table-responsive-->
+
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4">
+                                                <div class="dataTables_info" id="basic-datatable_info" role="status"
+                                                     aria-live="polite">共找到 {{count}} 条记录
+                                                </div>
+                                            </div>
+
+                                                {{ pg.page(datas) }}
+
+                                        </div>
+                                    </div> <!-- end card body-->
+
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+
+
+
+<script>
+$(".page-link").click(function(){
+    var page = $(this).data('page')
+    matchUrl('page',page);  // 生成URL
+})
+
+</script>
+
+
+
+{% endblock %}

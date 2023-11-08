@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% import 'page.html' as pg %}
+{% block body_block %}
+
+                            <div class="col-xl-10">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">轮缘厚度查询</h4>
+                                        <p class="text-muted font-14 mb-3"></p>
+										<form method="get" action="{{url_for('search_Sd')}}">
+										 <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="form-group mb-3">
+                                                    <label></label>
+                                                    <input data-toggle="touchspin" type="text" name="min" data-step="0.1" data-decimals="1">
+                                                </div>
+                                            </div><!-- end col -->
+                                            <span style="line-height:80px" > ~ </span>
+                                            <div class="col-lg-3">
+                                                <div class="form-group mb-3">
+                                                    <label></label>
+                                                    <input data-toggle="touchspin" type="text" name="max" data-step="0.1" data-decimals="1">
+                                                </div>
+                                            </div>
+											<div class="input-group-append">
+                                               <button class="btn btn-primary" type="submit"
+													   style="width:80px;margin-top:20px;margin-bottom:25px">查询</button>
+                                            </div>
+										 </div>
+										</form>
+
+
+
+
+
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+
+
+                            <div class="col-xl-13">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">轮缘厚度</h4>
+                                        <p class="text-muted font-14 mb-4"></p>
+
+                                        <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
+                                            <thead>
+                                                <tr>
+                                                     <th>车号</th>
+                                                        <th>车组号</th>
+                                                        <th>轮对序号</th>
+                                                        <th>轮缘综合值QR</th>
+                                                        <th>轮缘高度</th>
+                                                        <th>轮缘厚度</th>
+                                                        <th>轮径</th>
+                                                        <th>内侧距</th>
+                                                        <th>测量日期</th>
+                                                </tr>
+                                            </thead>
+                                                <tbody>
+                                                {% for data in datas.items %}
+                                                  <tr>
+                                                        <td>{{data.metro_id}}</td>
+                                                        <td>{{data.car_id}}</td>
+                                                        <td>{{data.wheel_id}}</td>
+                                                        <td>{{data.QR}}</td>
+                                                        <td>{{data.Sh}}</td>
+                                                        <td>{{data.Sd}}</td>
+                                                        <td>{{data.WD}}</td>
+                                                        <td>{{data.AR}}</td>
+                                                        <td>{{data.date}}</td>
+                                                  </tr>
+                                                {% endfor%}
+                                                </tbody>
+                                        </table>
+                                    </div>
+                                 </div> <!-- end table-responsive-->
+
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4">
+                                                <div class="dataTables_info" id="basic-datatable_info" role="status"
+                                                     aria-live="polite">共找到 {{count}} 条记录
+                                                </div>
+                                            </div>
+
+                                                {{ pg.page(datas) }}
+
+                                        </div>
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+                        </div>
+                        <!-- end row-->
+
+
+
+
+
+
+
+<script>
+$(".page-link").click(function(){
+    var page = $(this).data('page')
+    matchUrl('page',page);  // 生成URL
+})
+
+</script>
+
+{% endblock %}

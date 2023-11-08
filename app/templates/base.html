@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>数据管理界面</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="static/images/favicon.ico">
+
+        <!-- third party css -->
+        <link href="static/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="/static/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/static/css/app.min.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="https://cdn.staticfile.org/echarts/5.0.2/echarts.min.js"></script>
+    </head>
+
+    <div>
+
+        <!-- Topbar Start -->
+        <div class="navbar-custom topnav-navbar">
+            <div class="container-fluid">
+
+                <!-- LOGO -->
+                <a href="{{url_for('index')}}" class="topnav-logo">
+                    <span class="topnav-logo-lg">
+                        <img src="static/images/logo-light.png" alt="" height="16">
+                    </span>
+                    <span class="topnav-logo-sm">
+                        <img src="static/images/logo_sm.png" alt="" height="16">
+                    </span>
+                </a>
+
+<!--                <ul class="list-unstyled topbar-right-menu float-right mb-0">-->
+
+
+<!--                    <li class="dropdown notification-list">-->
+<!--                        <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" id="topbar-notifydrop" role="button" aria-haspopup="true" aria-expanded="false">-->
+<!--                            <i class="dripicons-bell noti-icon"></i>-->
+<!--                            <span class="noti-icon-badge"></span>-->
+<!--                        </a>-->
+<!--                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg" aria-labelledby="topbar-notifydrop">-->
+
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <div class="dropdown-item noti-title">-->
+<!--                                <h5 class="m-0">-->
+<!--                                    <span class="float-right">-->
+<!--                                        <a href="javascript: void(0);" class="text-dark">-->
+<!--                                            <small>Clear All</small>-->
+<!--                                        </a>-->
+<!--                                    </span>Notification-->
+<!--                                </h5>-->
+<!--                            </div>-->
+
+<!--                            <div class="slimscroll" style="max-height: 230px;">-->
+<!--                                &lt;!&ndash; item&ndash;&gt;-->
+<!--                                <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                    <div class="notify-icon bg-primary">-->
+<!--                                        <i class="mdi mdi-comment-account-outline"></i>                                    </div>-->
+<!--                                    <p class="notify-details">Caleb Flakelar commented on Admin-->
+<!--                                        <small class="text-muted">1 min ago</small>-->
+<!--                                    </p>-->
+<!--                                </a>-->
+
+<!--                                &lt;!&ndash; item&ndash;&gt;-->
+<!--                                <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                    <div class="notify-icon bg-info">-->
+<!--                                        <i class="mdi mdi-account-plus"></i>-->
+<!--                                    </div>-->
+<!--                                    <p class="notify-details">New user registered.-->
+<!--                                        <small class="text-muted">5 hours ago</small>-->
+<!--                                    </p>-->
+<!--                                </a>-->
+
+<!--                                &lt;!&ndash; item&ndash;&gt;-->
+<!--                                <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                    <div class="notify-icon">-->
+<!--                                        <img src="static/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>-->
+<!--                                    <p class="notify-details">Cristina Pride</p>-->
+<!--                                    <p class="text-muted mb-0 user-msg">-->
+<!--                                        <small>Hi, How are you? What about our next meeting</small>-->
+<!--                                    </p>-->
+<!--                                </a>-->
+
+<!--                                &lt;!&ndash; item&ndash;&gt;-->
+<!--                                <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                    <div class="notify-icon bg-primary">-->
+<!--                                        <i class="mdi mdi-comment-account-outline"></i>-->
+<!--                                    </div>-->
+<!--                                    <p class="notify-details">Caleb Flakelar commented on Admin-->
+<!--                                        <small class="text-muted">4 days ago</small>-->
+<!--                                    </p>-->
+<!--                                </a>-->
+
+<!--                                &lt;!&ndash; item&ndash;&gt;-->
+<!--                                <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                    <div class="notify-icon">-->
+<!--                                        <img src="static/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />-->
+<!--                                    </div>-->
+<!--                                    <p class="notify-details">Karen Robinson</p>-->
+<!--                                    <p class="text-muted mb-0 user-msg">-->
+<!--                                        <small>Wow ! this admin looks good and awesome design</small>-->
+<!--                                    </p>-->
+<!--                                </a>-->
+
+<!--                                &lt;!&ndash; item&ndash;&gt;-->
+<!--                                <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                    <div class="notify-icon bg-info">-->
+<!--                                        <i class="mdi mdi-heart"></i>-->
+<!--                                    </div>-->
+<!--                                    <p class="notify-details">Carlos Crouch liked-->
+<!--                                        <b>Admin</b>-->
+<!--                                        <small class="text-muted">13 days ago</small>-->
+<!--                                    </p>-->
+<!--                                </a>-->
+<!--                            </div>-->
+
+<!--                            &lt;!&ndash; All&ndash;&gt;-->
+<!--                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">-->
+<!--                                View All-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </li>-->
+
+<!--                    <li class="dropdown notification-list">-->
+<!--                        <a class="nav-link right-bar-toggle" href="javascript: void(0);">-->
+<!--                            <i class="dripicons-gear noti-icon"></i>-->
+<!--                        </a>-->
+<!--                    </li>-->
+
+<!--                    <li class="dropdown notification-list">-->
+<!--                        <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" id="topbar-userdrop" href="#" role="button" aria-haspopup="true"-->
+<!--                            aria-expanded="false">-->
+<!--                            <span class="account-user-avatar">-->
+<!--                                <img src="" alt="user-image" class="rounded-circle">-->
+<!--                            </span>-->
+<!--                            <span>-->
+<!--                                <span class="account-user-name">用户</span>-->
+<!--&lt;!&ndash;                                <span class="account-position">Founder</span>                     &ndash;&gt;-->
+<!--                            </span>-->
+<!--                        </a>-->
+<!--                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">-->
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <div class=" dropdown-header noti-title">-->
+<!--                                <h6 class="text-overflow m-0">Welcome !</h6>-->
+<!--                            </div>-->
+
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                <i class="mdi mdi-account-circle mr-1"></i>-->
+<!--                                <span>My Account</span>-->
+<!--                            </a>-->
+
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                <i class="mdi mdi-account-edit mr-1"></i>-->
+<!--                                <span>Settings</span>-->
+<!--                            </a>-->
+
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                <i class="mdi mdi-lifebuoy mr-1"></i>-->
+<!--                                <span>Support</span>-->
+<!--                            </a>-->
+
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                <i class="mdi mdi-lock-outline mr-1"></i>-->
+<!--                                <span>Lock Screen</span>-->
+<!--                            </a>-->
+
+<!--                            &lt;!&ndash; item&ndash;&gt;-->
+<!--                            <a href="javascript:void(0);" class="dropdown-item notify-item">-->
+<!--                                <i class="mdi mdi-logout mr-1"></i>-->
+<!--                                <span>Logout</span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                </ul>-->
+                <a class="button-menu-mobile disable-btn">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <!-- end Topbar -->
+
+
+        <div class="container-fluid">
+
+            <!-- Begin page -->
+            <div class="wrapper">
+
+                <!-- ============================================================== -->
+                <!-- Start Page Content here -->
+                <!-- ============================================================== -->
+
+                <!-- Start Content-->
+
+                <!-- ========== Left Sidebar Start ========== -->
+                <div class="left-side-menu">
+
+<!--                    <div class="leftbar-user">-->
+<!--                        <a href="#">-->
+<!--                            <img src="" alt="user-image" height="42" class="rounded-circle shadow-sm">-->
+<!--                            <span class="leftbar-user-name">用户</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+                    <!--- Sidemenu -->
+                    <ul class="metismenu side-nav">
+
+
+
+                        <li class="side-nav-item">
+                            <a href="javascript: void(0);" class="side-nav-link">
+                                <i class="dripicons-meter"></i>
+                                <span class="menu-arrow"></span>
+                                <span> 导航 </span>                            </a>
+                            <ul class="side-nav-second-level" aria-expanded="false">
+                                <li>
+                                    <a href="{{url_for('index')}}">首页</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+
+                        <li class="side-nav-item">
+                            <a href="javascript: void(0);" class="side-nav-link">
+                                <i class="dripicons-list"></i>
+                                <span> 表格 </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="side-nav-second-level" aria-expanded="false">
+                                <li>
+                                    <a href="{{url_for('car_list')}}">轮对监测</a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('wheel_list')}}">最新整车数据</a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('abration')}}">磨耗</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="javascript: void(0);" class="side-nav-link">
+                                <i class="dripicons-list"></i>
+                                <span> 条件搜索 </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="side-nav-second-level" aria-expanded="false">
+                                <li>
+                                    <a href="{{url_for('search_Sd')}}">轮缘厚度</a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('search_WD')}}">轮径值</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+                    <!-- Sidebar -left -->
+                </div>
+                <!-- Left Sidebar End -->
+              {% block  body_block %}
+              {% endblock %}
+            </div>
+
+        <div class="rightbar-overlay"></div>
+        <!-- /Right-bar -->
+
+
+        <!-- App js -->
+        <script src="static/js/app.min.js"></script>
+
+        <!-- third party js -->
+        <script src="static/js/vendor/Chart.bundle.min.js"></script>
+        <script src="static/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="static/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- third party js ends -->
+        <!-- demo app -->
+        <script src="static/js/pages/demo.dashboard.js"></script>
+         <!-- end demo js-->
+
+    </body>
+</html>

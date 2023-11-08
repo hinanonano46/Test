@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% import 'page.html' as pg %}
+{% block body_block %}
+<div class="col-xl-10">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <h4 class="header-title">轮对最新数据</h4>
+                                        <p class="text-muted font-14 mb-0">
+                                            每个车的各个轮对的详细数据，其中轮缘厚度小于28的会标红。
+                                        </p>
+                <div class="app-search">
+                    <form method="get" action="{{url_for('wheel_list')}}">
+                        <div class="input-group">
+                            <input name="metro_id" type="text" class="form-control"  placeholder="请输入车号" style="border:true">
+
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                                        <div class="table-responsive-sm">
+                                            <table class="table table-centered mb-0">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th>车号</th>
+                                                        <th>车组号</th>
+                                                        <th>轮对序号</th>
+                                                        <th>轮缘综合值QR</th>
+                                                        <th>轮缘高度</th>
+                                                        <th>轮缘厚度</th>
+                                                        <th>轮径</th>
+                                                        <th>内侧距</th>
+                                                        <th>测量日期</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                {% for data in datas.items %}
+
+                                                  {% if data.Sd > 28 %}
+
+                                                    <tr>
+
+                                                        <td>{{data.metro_id}}</td>
+                                                        <td>{{data.car_id}}</td>
+                                                        <td>{{data.wheel_id}}</td>
+                                                        <td>{{data.QR}}</td>
+                                                        <td>{{data.Sh}}</td>
+                                                        <td>{{data.Sd}}</td>
+                                                        <td>{{data.WD}}</td>
+                                                        <td>{{data.AR}}</td>
+                                                        <td>{{data.date}}</td>
+
+                                                  {% else %}
+
+                                                    </tr>
+                                                    <tr class="bg-danger text-white">
+
+                                                        <td>{{data.metro_id}}</td>
+                                                        <td>{{data.car_id}}</td>
+                                                        <td>{{data.wheel_id}}</td>
+                                                        <td>{{data.QR}}</td>
+                                                        <td>{{data.Sh}}</td>
+                                                        <td>{{data.Sd}}</td>
+                                                        <td>{{data.WD}}</td>
+                                                        <td>{{data.AR}}</td>
+                                                        <td>{{data.date}}</td>
+                                                    </tr>
+                                                  {% endif %}
+                                                {% endfor %}
+
+                                                </tbody>
+
+
+
+                                            </table>
+                                        </div> <!-- end table-responsive-->
+
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4">
+                                                <div class="dataTables_info" id="basic-datatable_info" role="status"
+                                                     aria-live="polite">共找到 {{count}} 条记录
+                                                </div>
+                                            </div>
+
+                                                {{ pg.page(datas) }}
+
+                                        </div>
+                                    </div> <!-- end card body-->
+
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+<script>
+$(".page-link").click(function(){
+    var page = $(this).data('page')
+    matchUrl('page',page);  // 生成URL
+})
+
+</script>
+{% endblock %}
